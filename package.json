@@ -1,0 +1,7 @@
+{
+  "name": "p_tinyfsm",
+  "version": "1.0.0",
+  "description": "tiny finite-state-machine for Promise",
+  "main": "p_tinyfsm.js",
+  "license": "ISC"
+}
