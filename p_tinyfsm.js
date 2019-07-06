@@ -1,6 +1,6 @@
 module.exports = (init_opts,init_fsm) => new Promise(async(resolve,reject)=>{
 	try{
-		var {lgc,fsm} = init_fsm ? {lgc:init_opts} : (init_opts||{});
+		var {lgc,fsm} = init_fsm ? {lgc:init_opts,fsm:init_fsm} : (init_opts||{});
 		var step_name,prev_sts,prev_rst,prev_name,pt,m;
 		//auto parse fsm from str to obj:
 		var fsm_o = (typeof fsm=='object') ? fsm : fsm.split(/[\n\r]+/).reduce(
