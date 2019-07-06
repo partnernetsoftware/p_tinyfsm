@@ -1,7 +1,7 @@
-module.exports = (init_opts,init_fsm) => new Promise(async(resolve,reject)=>{
+module.exports = (init_opts,init_fsm,init_step_name) => new Promise(async(resolve,reject)=>{
 	try{
-		var {lgc,fsm} = init_fsm ? {lgc:init_opts,fsm:init_fsm} : (init_opts||{});
-		var step_name,prev_sts,prev_rst,prev_name,pt,m;
+		var {lgc,fsm,step_name} = init_fsm ? {lgc:init_opts,fsm:init_fsm,step_name:init_step_name} : (init_opts||{});
+		var prev_sts,prev_rst,prev_name,pt,m;
 		//auto parse fsm from str to obj:
 		var fsm_o = (typeof fsm=='object') ? fsm : fsm.split(/[\n\r]+/).reduce(
 			(r,e)=>(m=e.replace(/\s/g,'').match(/^(\w+)?(\.(\w*)=>(\w*))?/))&&(pt=m[1]||pt,pt&&(r[pt]=(r[pt]||{}),r[pt][m[3]]=m[4]),r),{}
